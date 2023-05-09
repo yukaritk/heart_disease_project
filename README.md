@@ -12,7 +12,7 @@ Esse projeto consiste em prever doenças do coração utilizando Machine Learnin
  - Kaggle (Para o dataset: [link](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset))
  - Docker
  - FastAPI (criação de API em python)
- - Jupyter Notebook
+ - Jupyter Notebook ([link](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset))
 
 <br>
 <br>
