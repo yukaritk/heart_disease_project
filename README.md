@@ -14,6 +14,24 @@ Esse projeto consiste em prever doenças do coração utilizando Machine Learnin
  - FastAPI (criação de API em python)
  - Jupyter Notebook ([link](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset))
 
+ ### Como rodar localmente
+
+
+
+ ```
+ //Para windows, rodar:
+cmd
+//depois
+.venv\Scripts\activate.bat
+//instalar dependencias
+pip install -r requirements.txt
+
+//abrir página do projeto
+streamlit run main.py
+// ira abrir o navegador com o endereço parecido com esse: http://localhost:8501/
+
+```
+
 <br>
 <br>
 <br>

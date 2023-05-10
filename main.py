@@ -7,7 +7,6 @@ else:
 import numpy as np
 import pandas as pd
 import streamlit as st
-import yfinance as yf
 
 st.title("""
     Você tem probabilidade de doenças do coração?
