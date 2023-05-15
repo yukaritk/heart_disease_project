@@ -11,10 +11,10 @@ link publico: [https://heartdisease-tatianeyukari.b4a.run/](https://heartdisease
  - Scikit Learn
  - Streamlit
  - Seaborn
- - Kaggle (Para o dataset: [link](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset))
+ - Kaggle (Para o dataset: [link](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction))
  - Docker
  - FastAPI (criação de API em python)
- - Jupyter Notebook ([link](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset))
+ - Colab Notebook ([link](https://colab.research.google.com/drive/1A74VAUkRuJ5tfosPIzbdtlMTVwyDBOXM#scrollTo=DDDTuP33M6_T))
 
  ### Como rodar localmente o Streamlit
 
