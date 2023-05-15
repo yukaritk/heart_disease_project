@@ -14,47 +14,28 @@ Esse projeto consiste em prever doenças do coração utilizando Machine Learnin
  - FastAPI (criação de API em python)
  - Jupyter Notebook ([link](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset))
 
- ### Como rodar localmente
+ ### Como rodar localmente o Streamlit
 
 
 
- ```
- //Para windows, rodar:
+ ```script
+ //Para windows, rodar no terminal:
 cmd
+
 //depois
 .venv\Scripts\activate.bat
+
 //instalar dependencias
 pip install -r requirements.txt
 
 //abrir página do projeto
 streamlit run main.py
+
 // ira abrir o navegador com o endereço parecido com esse: http://localhost:8501/
+
+
+//para sair do projeto
+CRTL + C
 
 ```
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
-
-At the command prompt, type `nano`.
-
-  ![Tux, the Linux mascot](/assets/images/tux.png)
-
-- 1968\. A great year!
-- I think 1969 was second best.
-
--------
-
-        <html>
-          <head>
-            <title>Test</title>
-          </head>
