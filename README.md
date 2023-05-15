@@ -4,6 +4,8 @@
 
 Esse projeto consiste em prever doenças do coração utilizando Machine Learning.
 
+link publico: [https://heartdisease-tatianeyukari.b4a.run/](https://heartdisease-tatianeyukari.b4a.run/)
+
 ### Tecnologias usadas
  - Python
  - Scikit Learn
