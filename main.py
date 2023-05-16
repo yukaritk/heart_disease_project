@@ -10,62 +10,79 @@ import streamlit as st
 
 st.title("""
     Você tem probabilidade de doenças do coração?
-Responda:
     """)
 
-age = st.slider(label='Idade' ,min_value=12, max_value=110)
-trestbps = st.slider(label='Pressao sanguinea' ,min_value=30, max_value=200)
-chol = st.slider(label='Colesterol LDL' ,min_value=50, max_value=200)
-thalach = st.slider(label='Maximo de batimentos cardiacas em repouso' ,min_value=30, max_value=200)
-sex = st.radio(label='Sexo', options=['Feminino','Masculino'])
-if sex == 'Feminino':
-    sex_0 = 1
-    sex_1 = 0
+Age = st.slider(label='Idade (anos)' ,min_value=12, max_value=110)
+RestingBP = st.slider(label='Pressao arterial em repouso (mm/Hg)' ,min_value=0, max_value=200)
+Cholesterol = st.slider(label='Colesterol Sérico (LDL)' ,min_value=0, max_value=384)
+MaxHR = st.slider(label='Frequência cardíaca máxima alcançada' ,min_value=60, max_value=202)
+Sex = st.radio(label='Sexo', options=['Feminino','Masculino'])
+if Sex == 'Feminino':
+    Sex_F = 1
+    Sex_M = 0
 else:
-    sex_0 = 0
-    sex_1 = 1
+    Sex_F = 0
+    Sex_M = 1
 
-cp = st.radio(label='Dor no peito', options=['Sinto dor no peito','Sinto muita dor no peito','Sem dor no peito','Assintomatico'])
-if cp == 'Sinto dor no peito':
-    cp_0 = 1
-    cp_1 = 0
-    cp_2 = 0
-    cp_3 = 0
-elif cp == 'Sinto muita dor no peito':
-    cp_0 = 0
-    cp_1 = 1
-    cp_2 = 0
-    cp_3 = 0
+cp = st.radio(label='Dor no peito', options=['Tipica dor no peito','Atipica dor no peito','Sem dor no peito','Assintomatico'])
+if cp == 'Tipica dor no peito':
+    ChestPainType_ASY = 0
+    ChestPainType_ATA = 0
+    ChestPainType_NAP = 0
+    ChestPainType_TA = 1
+elif cp == 'Atipica dor no peito':
+    ChestPainType_ASY = 0
+    ChestPainType_ATA = 1
+    ChestPainType_NAP = 0
+    ChestPainType_TA = 0
 elif cp == 'Sem dor no peito':
-    cp_0 = 0
-    cp_1 = 0
-    cp_2 = 1
-    cp_3 = 0
+    ChestPainType_ASY = 0
+    ChestPainType_ATA = 0
+    ChestPainType_NAP = 1
+    ChestPainType_TA = 0
 else:
-    cp_0 = 0
-    cp_1 = 0
-    cp_2 = 0
-    cp_3 = 1
+    ChestPainType_ASY = 1
+    ChestPainType_ATA = 0
+    ChestPainType_NAP = 0
+    ChestPainType_TA = 0
 
-fbs = st.radio(label='Glicemia acima de 120mg/dl ?',options=['Sim','Não'])
+
+fbs = st.radio(label='Glicose em jejum esta acima de 120mg/dl ?',options=['Sim','Não'])
 if fbs == 'Sim':
-    fbs_0 = 0
-    fbs_1 = 1
+    FastingBS_0 = 0
+    FastingBS_1 = 1
 else:
-    fbs_0 = 1
-    fbs_1 = 0
+    FastingBS_0 = 1
+    FastingBS_1 = 0
+
 
 exang = st.radio(label='Sente dor no peito quando faz exercício?', options=['Sim', 'Não'])
 if exang == 'Sim':
-    exang_0 = 0
-    exang_1 = 1
+    ExerciseAngina_N = 0
+    ExerciseAngina_Y = 1
 else:
-    exang_0 = 1
-    exang_1 = 0
+    ExerciseAngina_N = 1
+    ExerciseAngina_Y = 0
 
-TESTDATA = StringIO(f"""age;trestbps;chol;thalach;sex_0;sex_1;cp_0;cp_1;cp_2;cp_3;fbs_0;fbs_1;exang_0;exang_1
-{age};{trestbps};{chol};{thalach};{sex_0};{sex_1};{cp_0};{cp_1};{cp_2};{cp_3};{fbs_0};{fbs_1};{exang_0};{exang_1}
+
+ecg = st.radio(label = 'Resultado do eletrocardiograma em repouso', options=['Normal','Anormalidade da onda ST-T','Mostrando hipertrofia ventricular'])
+if ecg == 'Normal':
+    RestingECG_LVH = 0
+    RestingECG_Normal = 1
+    RestingECG_ST = 0
+elif ecg == 'Anormalidade da onda ST-T':
+    RestingECG_LVH = 0
+    RestingECG_Normal = 0
+    RestingECG_ST = 1
+else:
+    RestingECG_LVH = 1
+    RestingECG_Normal = 0
+    RestingECG_ST = 0
+
+TESTDATA = StringIO(f"""Age;RestingBP;Cholesterol;MaxHR;Sex_F;Sex_M;ChestPainType_ASY;ChestPainType_ATA;ChestPainType_NAP;ChestPainType_TA;FastingBS_0;FastingBS_1;RestingECG_LVH;RestingECG_Normal;RestingECG_ST;ExerciseAngina_N;ExerciseAngina_Y
+{Age};{RestingBP};{Cholesterol};{MaxHR};{Sex_F};{Sex_M};{ChestPainType_ASY};{ChestPainType_ATA};{ChestPainType_NAP};{ChestPainType_TA};{FastingBS_0};{FastingBS_1};{RestingECG_LVH};{RestingECG_Normal};{RestingECG_ST};{ExerciseAngina_N};{ExerciseAngina_Y}
     """)
+					                                               				
 
 df = pd.read_csv(TESTDATA, sep=";")
 
